@@ -1,288 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Home Essentials</title>
-    <meta name="description" content="Premium smart home devices for modern living">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            min-height: 100vh;
-            color: #f1f5f9;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .hero-banner {
-            text-align: center;
-            padding: 48px 20px 32px;
-        }
-        .hero-banner h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-banner p {
-            color: #94a3b8;
-            font-size: 16px;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .product-card {
-            background: linear-gradient(145deg, #1e293b, #334155);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #334155;
-        }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        .product-card.highlight {
-            border: 2px solid #60a5fa;
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.2);
-        }
-        .card-badge {
-            background: #334155;
-            color: #94a3b8;
-            text-align: center;
-            padding: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .product-card.highlight .card-badge {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: #fff;
-        }
-        .card-body {
-            padding: 28px 24px;
-            text-align: center;
-        }
-        .product-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-            color: #60a5fa;
-        }
-        .product-name {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .product-desc {
-            font-size: 13px;
-            color: #94a3b8;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        .price-tag {
-            margin-bottom: 20px;
-        }
-        .price-tag .amount {
-            font-size: 42px;
-            font-weight: 700;
-            color: #34d399;
-        }
-        .price-tag .amount sup {
-            font-size: 20px;
-        }
-        .price-tag .original {
-            text-decoration: line-through;
-            color: #64748b;
-            font-size: 14px;
-            margin-left: 8px;
-        }
-        .features-list {
-            list-style: none;
-            margin-bottom: 24px;
-            font-size: 13px;
-        }
-        .features-list li {
-            padding: 8px 0;
-            color: #34d399;
-            font-weight: 500;
-        }
-        .features-list li i {
-            margin-right: 8px;
-        }
-        .buy-btn {
-            display: block;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: #fff;
-            font-weight: 600;
-            font-size: 15px;
-            padding: 14px 24px;
-            border-radius: 12px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .buy-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-        }
-        .payment-icons {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 16px;
-            font-size: 24px;
-            color: #64748b;
-        }
-        .site-footer {
-            background: #0f172a;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 48px;
-            font-size: 12px;
-            color: #64748b;
-        }
-        .footer-nav {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 20px;
-        }
-        .footer-nav a {
-            color: #94a3b8;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .footer-nav a:hover {
-            color: #60a5fa;
-        }
-        .disclaimer {
-            max-width: 500px;
-            margin: 16px auto 0;
-            line-height: 1.5;
-        }
-        @media (max-width: 900px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 600px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-                max-width: 360px;
-            }
-            .hero-banner h1 {
-                font-size: 26px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoVault — Sustainable Goods for Intentional Living</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --forest: #2d4a2d;
+      --moss: #4a7c4a;
+      --sage: #8aad6e;
+      --terra: #c1714a;
+      --sand: #f2ead8;
+      --cream: #faf8f3;
+      --text: #2c2c2c;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.1rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(250,248,243,0.95); border-bottom: 1px solid rgba(0,0,0,0.07); }
+    .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; color: var(--forest); display: flex; align-items: center; gap: 0.5rem; }
+    .logo-icon { width: 32px; height: 32px; background: var(--forest); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-size: 0.88rem; font-weight: 500; opacity: 0.7; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; }
+    .nav-shop { background: var(--forest); color: white !important; opacity: 1 !important; padding: 0.5rem 1.3rem; border-radius: 2px; }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 55% 45%; padding: 7rem 0 0; }
+    .hero-left { padding: 4rem 5%; display: flex; flex-direction: column; justify-content: center; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: #e8f0e4; color: var(--moss); font-size: 0.78rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; padding: 0.4rem 0.9rem; border-radius: 20px; width: fit-content; margin-bottom: 2rem; }
+    .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 5vw, 5rem); font-weight: 300; line-height: 1.15; }
+    .hero h1 strong { font-weight: 600; color: var(--forest); }
+    .hero h1 em { font-style: italic; color: var(--terra); }
+    .hero p { margin: 1.5rem 0 2.5rem; color: #666; line-height: 1.8; max-width: 440px; }
+    .btn-forest { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--forest); color: white; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; border-radius: 2px; transition: background 0.2s; }
+    .btn-forest:hover { background: var(--moss); }
+    .hero-trust { display: flex; gap: 2rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08); }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: #888; }
+    .trust-item i { color: var(--sage); }
+    .hero-right { background: var(--sand); display: flex; align-items: center; justify-content: center; font-size: 12rem; position: relative; overflow: hidden; }
+    .hero-right::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(45,74,45,0.08), transparent); }
+
+    /* MISSION */
+    .mission { padding: 5rem 5%; text-align: center; max-width: 800px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--terra); margin-bottom: 0.75rem; }
+    .mission h2 { font-family: 'Fraunces', serif; font-size: 2.5rem; font-weight: 300; line-height: 1.3; }
+    .mission h2 em { font-style: italic; color: var(--forest); font-weight: 600; }
+    .mission p { color: #666; line-height: 1.9; margin-top: 1.25rem; }
+
+    /* PRODUCTS */
+    .products { padding: 3rem 5% 6rem; }
+    .products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+    .products-header h2 { font-family: 'Fraunces', serif; font-size: 2.5rem; font-weight: 300; }
+    .products-header a { color: var(--terra); text-decoration: none; font-size: 0.88rem; font-weight: 500; border-bottom: 1px solid var(--terra); }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }
+    .product-card { background: white; border-radius: 3px; overflow: hidden; transition: transform 0.3s; cursor: pointer; }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-thumb { height: 240px; display: flex; align-items: center; justify-content: center; font-size: 6rem; position: relative; }
+    .product-thumb.a { background: #e8f0e4; }
+    .product-thumb.b { background: var(--sand); }
+    .product-thumb.c { background: #f0e8e4; }
+    .product-thumb.d { background: #e4ecf0; }
+    .badge { position: absolute; top: 1rem; left: 1rem; background: var(--terra); color: white; font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 0.25rem 0.6rem; }
+    .product-body { padding: 1.25rem 1.5rem; }
+    .product-category { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; }
+    .product-body h3 { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .product-body p { font-size: 0.85rem; color: #888; line-height: 1.5; margin-bottom: 1rem; }
+    .product-footer { display: flex; justify-content: space-between; align-items: center; }
+    .price { font-weight: 600; color: var(--forest); }
+    .add-btn { background: var(--forest); color: white; border: none; padding: 0.45rem 1rem; font-size: 0.8rem; cursor: pointer; border-radius: 2px; transition: background 0.2s; }
+    .add-btn:hover { background: var(--moss); }
+
+    /* VALUES */
+    .values { background: var(--forest); color: white; padding: 5rem 5%; }
+    .values-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: center; }
+    .values h2 { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 300; line-height: 1.2; }
+    .values h2 em { font-style: italic; color: var(--sage); }
+    .values-list { display: grid; gap: 2rem; }
+    .value-item { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; align-items: start; }
+    .value-icon { width: 2.5rem; height: 2.5rem; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .value-text h4 { font-weight: 600; margin-bottom: 0.3rem; }
+    .value-text p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* IMPACT */
+    .impact { padding: 5rem 5%; background: var(--sand); text-align: center; }
+    .impact h2 { font-family: 'Fraunces', serif; font-size: 2.5rem; font-weight: 300; margin-bottom: 3rem; }
+    .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+    .impact-item { padding: 2rem; background: white; border-radius: 3px; }
+    .impact-num { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 600; color: var(--forest); line-height: 1; }
+    .impact-desc { font-size: 0.85rem; color: #888; margin-top: 0.5rem; line-height: 1.5; }
+
+    footer { background: var(--text); color: rgba(255,255,255,0.5); text-align: center; padding: 2rem; font-size: 0.85rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 0.75rem; transition: color 0.2s; }
+    footer a:hover { color: white; }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 300px; }
+      .values-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
-    <header class="hero-banner">
-        <h1>Smart Home Essentials</h1>
-        <p>Premium devices for modern living</p>
-    </header>
 
-    <section class="products-grid">
-        <a href="#" class="product-card">
-            <div class="card-badge">Basic</div>
-            <div class="card-body">
-                <i class="fa-solid fa-lightbulb product-icon"></i>
-                <h3 class="product-name">Smart Bulb Kit</h3>
-                <p class="product-desc">4 WiFi-enabled RGB bulbs with voice control support</p>
-                <div class="price-tag">
-                    <span class="amount"><sup>$</sup>49</span>
-                    <span class="original">$89</span>
-                </div>
-                <ul class="features-list">
-                    <li><i class="fa-solid fa-check"></i> Works with Alexa & Google</li>
-                    <li><i class="fa-solid fa-check"></i> 16 Million Colors</li>
-                </ul>
-                <span class="buy-btn">Shop Now</span>
-                <div class="payment-icons">
-                    <i class="fa-brands fa-cc-visa"></i>
-                    <i class="fa-brands fa-cc-mastercard"></i>
-                    <i class="fa-brands fa-cc-amex"></i>
-                    <i class="fa-brands fa-cc-paypal"></i>
-                </div>
-            </div>
-        </a>
+<nav>
+  <div class="logo"><div class="logo-icon">🌿</div>EcoVault</div>
+  <ul class="nav-links">
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#values">Our Values</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#products" class="nav-shop">Shop Now</a></li>
+  </ul>
+</nav>
 
-        <a href="#" class="product-card highlight">
-            <div class="card-badge">Most Popular</div>
-            <div class="card-body">
-                <i class="fa-solid fa-house-signal product-icon"></i>
-                <h3 class="product-name">Complete Hub System</h3>
-                <p class="product-desc">Central hub + 8 smart devices bundle</p>
-                <div class="price-tag">
-                    <span class="amount"><sup>$</sup>199</span>
-                    <span class="original">$399</span>
-                </div>
-                <ul class="features-list">
-                    <li><i class="fa-solid fa-check"></i> All-in-One Control</li>
-                    <li><i class="fa-solid fa-check"></i> Free Installation Guide</li>
-                    <li><i class="fa-solid fa-check"></i> 2-Year Warranty</li>
-                </ul>
-                <span class="buy-btn">Shop Now</span>
-                <div class="payment-icons">
-                    <i class="fa-brands fa-cc-visa"></i>
-                    <i class="fa-brands fa-cc-mastercard"></i>
-                    <i class="fa-brands fa-cc-amex"></i>
-                    <i class="fa-brands fa-cc-paypal"></i>
-                </div>
-            </div>
-        </a>
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-tag"><i class="fa-solid fa-leaf"></i> 100% Sustainable · Carbon Neutral</div>
+    <h1>Products that<br><strong>respect</strong> the<br>planet <em>&amp; you</em></h1>
+    <p>EcoVault curates the world's finest sustainable everyday goods — from kitchen essentials to personal care — so you never have to choose between quality and conscience.</p>
+    <a href="#products" class="btn-forest"><i class="fa-solid fa-bag-shopping"></i> Shop the Collection</a>
+    <div class="hero-trust">
+      <div class="trust-item"><i class="fa-solid fa-check"></i> Plastic-free packaging</div>
+      <div class="trust-item"><i class="fa-solid fa-check"></i> B Corp certified</div>
+      <div class="trust-item"><i class="fa-solid fa-check"></i> 1% for the Planet</div>
+    </div>
+  </div>
+  <div class="hero-right">🌍</div>
+</section>
 
-        <a href="#" class="product-card">
-            <div class="card-badge">Security</div>
-            <div class="card-body">
-                <i class="fa-solid fa-video product-icon"></i>
-                <h3 class="product-name">Security Camera Set</h3>
-                <p class="product-desc">2 outdoor cameras with night vision</p>
-                <div class="price-tag">
-                    <span class="amount"><sup>$</sup>129</span>
-                    <span class="original">$249</span>
-                </div>
-                <ul class="features-list">
-                    <li><i class="fa-solid fa-check"></i> 1080p HD Recording</li>
-                    <li><i class="fa-solid fa-check"></i> Motion Detection</li>
-                </ul>
-                <span class="buy-btn">Shop Now</span>
-                <div class="payment-icons">
-                    <i class="fa-brands fa-cc-visa"></i>
-                    <i class="fa-brands fa-cc-mastercard"></i>
-                    <i class="fa-brands fa-cc-amex"></i>
-                    <i class="fa-brands fa-cc-paypal"></i>
-                </div>
-            </div>
-        </a>
-    </section>
+<div class="mission" id="about">
+  <p class="section-label">Our Mission</p>
+  <h2>We believe <em>sustainable living</em> shouldn't mean compromise — it should mean better.</h2>
+  <p>Every product in our vault is vetted for material ethics, durability, and end-of-life responsibility. We partner only with makers who share our obsession with doing less harm and more good.</p>
+</div>
 
-    <footer class="site-footer">
-        <nav class="footer-nav">
-            <a href="footer/privacy.html">Privacy Policy</a>
-            <a href="footer/terms.html">Terms of Service</a>
-            <a href="footer/disclaimer.html">Disclaimer</a>
-        </nav>
-        <p>Copyright 2025 Smart Home Essentials. All rights reserved.</p>
-        <p class="disclaimer">This site is not affiliated with Amazon, Google, or Apple. Product names are trademarks of their respective owners.</p>
-    </footer>
+<section class="products" id="products">
+  <div class="products-header">
+    <h2>Featured Products</h2>
+    <a href="#">View all →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-thumb a"><span>🧴</span><div class="badge">Best Seller</div></div>
+      <div class="product-body">
+        <div class="product-category">Personal Care</div>
+        <h3>Refillable Shampoo Bar</h3>
+        <p>Zero-waste formula with argan oil. Lasts 80+ washes. Compostable wrapper.</p>
+        <div class="product-footer"><span class="price">$18.00</span><button class="add-btn">Add to Cart</button></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-thumb b"><span>🫙</span></div>
+      <div class="product-body">
+        <div class="product-category">Kitchen</div>
+        <h3>Beeswax Food Wraps (3pk)</h3>
+        <p>Reusable alternative to clingfilm. Hand-dyed with natural pigments.</p>
+        <div class="product-footer"><span class="price">$24.00</span><button class="add-btn">Add to Cart</button></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-thumb c"><span>🕯️</span><div class="badge">New</div></div>
+      <div class="product-body">
+        <div class="product-category">Home</div>
+        <h3>Soy Candle — Cedar & Smoke</h3>
+        <p>Hand-poured in recycled glass. Cotton wick. 55-hour burn time.</p>
+        <div class="product-footer"><span class="price">$32.00</span><button class="add-btn">Add to Cart</button></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-thumb d"><span>🎒</span></div>
+      <div class="product-body">
+        <div class="product-category">Accessories</div>
+        <h3>Hemp Tote Backpack</h3>
+        <p>Woven from organic hemp. Natural dye. Holds 18L. Reinforced straps.</p>
+        <div class="product-footer"><span class="price">$65.00</span><button class="add-btn">Add to Cart</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values" id="values">
+  <div class="values-inner">
+    <div>
+      <p class="section-label" style="color:var(--sage)">What We Stand For</p>
+      <h2>A vault worth <em>trusting</em></h2>
+    </div>
+    <div class="values-list">
+      <div class="value-item"><div class="value-icon">♻️</div><div class="value-text"><h4>Circular by Design</h4><p>Every product is made to be repaired, refilled, composted, or recycled — not discarded.</p></div></div>
+      <div class="value-item"><div class="value-icon">🤝</div><div class="value-text"><h4>Fair Supply Chains</h4><p>We audit every supplier annually for labour standards, fair wages, and safe working conditions.</p></div></div>
+      <div class="value-item"><div class="value-icon">🌳</div><div class="value-text"><h4>Carbon Neutral Shipping</h4><p>All orders are offset 120%. We partner with verified reforestation projects on every shipment.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="impact" id="impact">
+  <p class="section-label">Our Footprint</p>
+  <h2>Numbers that matter</h2>
+  <div class="impact-grid">
+    <div class="impact-item"><div class="impact-num">840K</div><div class="impact-desc">Single-use plastics avoided by our customers in 2025</div></div>
+    <div class="impact-item"><div class="impact-num">12K</div><div class="impact-desc">Trees planted through our reforestation partners</div></div>
+    <div class="impact-item"><div class="impact-num">97%</div><div class="impact-desc">Packaging made from recycled or compostable materials</div></div>
+    <div class="impact-item"><div class="impact-num">$180K</div><div class="impact-desc">Donated to environmental non-profits since launch</div></div>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:0.75rem">© 2026 EcoVault · Sustainable Goods for Intentional Living</p>
+  <a href="footer/privacy.html">Privacy Policy</a>
+  <a href="footer/terms.html">Terms of Service</a>
+  <a href="footer/disclaimer.html">Disclaimer</a>
+</footer>
+
 </body>
 </html>
